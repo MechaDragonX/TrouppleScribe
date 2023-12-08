@@ -39,9 +39,9 @@ def populate_deck(path: str, color: bool) -> None:
         # Find the key (entry name) by looking for everything before a tab
         # Store it to the temp array
         current_elements[0] = re.search(key_pattern, line).group()
-        # Find the value (description) by looking for everythign in between a tab and '['
+        # Find the value (description) by looking for everything in between a tab and '['
         # (set name is in [])
-        # Store it tot he temp array
+        # Store it to the temp array
         current_elements[1] = re.search(value_pattern, line).group()
 
         # If red deck
@@ -58,11 +58,11 @@ populate_deck('data/red.txt', True)
 # Populate green deck
 populate_deck('data/green.txt', False)
 
-# Find a random key value pair from the red deck dicitonary
-# dict.items() returns a special object, so it needs to be casted to a ordered data struct
-# random.sample() return a list of tuples, so I simply store the first element
+# Find a random key value pair from the red deck dictionary
+# dict.items() returns a special object, so it needs to be casted to an ordered data struct
+# random.sample() return a list of tuples, so I simply it to store the first element
 red_result = random.sample(list(red.items()), 1)[0]
-# Find a random key value pair from the green deck dicitonary
+# Find a random key value pair from the green deck dictionary
 green_result = random.sample(list(green.items()), 1)[0]
 
 # Print results in the format:
