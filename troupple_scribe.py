@@ -25,14 +25,14 @@ def populate_deck(path: str, color: bool) -> None:
     with open(path, 'r') as file:
         lines = file.readlines()
 
-    current_elements = []
+    current_elements = ['', '']
     key_pattern = re.compile('.+?(?=\t)')
     value_pattern = re.compile('(?<=\t)(.*?)(?=\[)')
     # set_pattern = re.compile('(?<=\[)(.*?)(?=\])')
 
     for line in lines:
-        current_elements.append(re.search(key_pattern, line).group())
-        current_elements.append(re.search(value_pattern, line).group())
+        current_elements[0] = re.search(key_pattern, line).group()
+        current_elements[1] = re.search(value_pattern, line).group()
 
         if color == True:
             red[current_elements[0]] = current_elements[1]
