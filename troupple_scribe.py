@@ -42,3 +42,9 @@ def populate_deck(path: str, color: bool) -> None:
 
 populate_deck('data/red.txt', True)
 populate_deck('data/green.txt', False)
+
+red_result = random.sample(list(red.items()), 1)[0]
+green_result = random.sample(list(green.items()), 1)[0]
+
+print(f'{red_result[0]}: {red_result[1]}')
+print(f'{green_result[0]}: {green_result[1]}')
