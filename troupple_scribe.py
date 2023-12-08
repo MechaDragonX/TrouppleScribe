@@ -1,3 +1,4 @@
+import random
 import re
 
 # SETS = [
@@ -30,14 +31,14 @@ def populate_deck(path: str, color: bool) -> None:
     # set_pattern = re.compile('(?<=\[)(.*?)(?=\])')
 
     for line in lines:
-        current_elements[0] = re.search(key_pattern, line).group()
-        current_elements[1] = re.search(value_pattern, line).group()
+        current_elements.append(re.search(key_pattern, line).group())
+        current_elements.append(re.search(value_pattern, line).group())
 
         if color == True:
             red[current_elements[0]] = current_elements[1]
         else:
             green[current_elements[0]] = current_elements[1]
 
-def setup() -> None:
-    populate_deck('data/red.txt', True)
-    populate_deck('data/green.txt', False)
+
+populate_deck('data/red.txt', True)
+populate_deck('data/green.txt', False)
